@@ -1,60 +1,30 @@
+#include <stdio.h>
 #include "main.h"
-#include <limits.h>
+#include <stdlib.h>
 
 /**
- * print_number - print an integer
- * @n: the integer to print
- *
- * Return: void
+ * main - Main func with args
+ * @argc: Number of args
+ * @argv: Array containing args
+ * Return: 1 in case of error, 0 on success
  */
-void print_number(int n)
-{
-if (n > -1)
-{
-if (n > 9)
-print_number(n / 10);
-_putchar('0' + n % 10);
-}
-else
-{
-_putchar('-');
-if (n < -9)
-print_number(n / -10);
-_putchar('0' - n % 10);
-}
-}
 
-/**
- * _puts - print a string, followed by a new line
- * @str: the string to print
- *
- * Return: void
- */
-void _puts(char *str)
-{
-while (*str)
-_putchar(*str++);
-_putchar('\n');
-}
-
-/**
- * main - print the product of two numbers
- * @argc: size of the argument vector
- * @argv: program name and arguments
- *
- * Return: 1 if called with anything other than 2 arguments,
- * otherwise 0
- */
 int main(int argc, char *argv[])
 {
-if (argc != 3)
-{
-_puts("Error");
-return (1);
-}
+	int a, b, c;
 
-print_number(atoi(argv[1]) * atoi(argv[2]));
-_putchar('\n');
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	else
+	{
+		a = atoi(argv[1]);
+		b = atoi(argv[2]);
 
-return (0);
+		c = a * b;
+		printf("%d\n", c);
+		return (0);
+	}
 }
