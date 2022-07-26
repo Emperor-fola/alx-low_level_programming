@@ -1,15 +1,39 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - prints the number of arguments passed into the program
- * @argc: int
- * @argv: list
- * Return: 0
+ * print_number - print an integer
+ * @n: the integer to print
+ *
+ * Return: void
  */
-
-int main(int argc, char const *argv[])
+void print_number(int n)
 {
-    (void)argv;
-    printf("%i\n", argc - 1);
-    return (0);
+if (n > -1)
+{
+if (n > 9)
+print_number(n / 10);
+_putchar('0' + n % 10);
+}
+else
+{
+_putchar('-');
+if (n < -9)
+print_number(n / -10);
+_putchar('0' - n % 10);
+}
+}
+
+/**
+ * main - print the number of arguments received
+ * @argc: size of the argument vector
+ * @argv: program name and arguments
+ *
+ * Return: Always 0
+ */
+int main(int argc, char *argv[] __attribute__ ((unused)))
+{
+print_number(argc - 1);
+_putchar('\n');
+
+return (0);
 }
